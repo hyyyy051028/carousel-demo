@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carousel from './components/Carousel';
 import './App.css';
 
@@ -18,6 +18,20 @@ const images = [
 ];
 
 function App() {
+  useEffect(() => {
+    // 添加调试信息
+    console.log('App mounted');
+
+    // 检查 DOM 元素
+    const root = document.getElementById('root');
+    console.log('Root element:', root);
+
+    // 清理函数
+    return () => {
+      console.log('App unmounted');
+    };
+  }, []);
+
   return (
     <div className="app">
       <h1>轮播图演示</h1>

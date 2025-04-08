@@ -16,6 +16,11 @@ export default defineConfig({
     sourcemap: true,
     minify: 'terser',
     chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   server: {
     port: 3000,
@@ -24,5 +29,11 @@ export default defineConfig({
       'Content-Type': 'application/javascript',
       'X-Content-Type-Options': 'nosniff',
     },
+    hmr: {
+      overlay: true,
+    },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
   },
 });
